@@ -11,6 +11,13 @@ namespace CSharpNewFeature
         //Initializers for auto-properties, note "This" (mutable and immutable types)
         public string FirstName { get; set; } = "Mingjin";
 
+        private string name2;
+        public string Name2
+        {
+            get => name2;
+            set => name2 = value;
+        }
+
         //Getter-only auto-properties
         public string LastName { get; } = "Ren";
 
@@ -116,7 +123,7 @@ namespace CSharpNewFeature
             {
                 await DoSomethingAsync();
             }
-            catch (Exception ex) when(HandleSomeException(ex))
+            catch (Exception ex) when (HandleSomeException(ex))
             {
                 await DoSomethingAsync();
                 throw;

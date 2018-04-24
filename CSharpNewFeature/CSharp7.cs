@@ -20,8 +20,9 @@ namespace CSharpNewFeature
             (string first, string last) betterTuples = ("FirstName", "LastName");
             Console.WriteLine($"{betterTuples.first}{betterTuples.last}");
 
-            var betterTuples2 = (first: "FirstName", last: "LastName");
-            Console.WriteLine($"{betterTuples2.first}{betterTuples2.last}");
+            //var betterTuples2 = (first: "FirstName", last: "LastName");
+            var (first, last) = ("FirstName", "LastName");
+            Console.WriteLine($"{first}{last}");
         }
 
         private (int Max, int Min) Range(IEnumerable<int> numbers)
@@ -77,11 +78,11 @@ namespace CSharpNewFeature
             foreach (var obj in objs)
             {
                 //Old way
-                var person2 = obj as Person;
-                if (person2 != null)
-                {
-                    Console.WriteLine($"{person2.FirstName}");
-                }
+                //var person2 = obj as Person;
+                //if (person2 != null)
+                //{
+                //    Console.WriteLine($"{person2.FirstName}");
+                //}
 
                 //New feature: Type patten
                 if (obj is Person person)
@@ -132,8 +133,6 @@ namespace CSharpNewFeature
                     break;
                 case var x:
                     Console.WriteLine($"it's a var pattern with the type {x?.GetType().Name} ");
-                    break;
-                default:
                     break;
             }
         }

@@ -13,8 +13,9 @@ namespace CSharpNewFeature
         {
             try
             {
-                var cus = new Customer();
-                cus.FooCaller();
+                var cus = new CSharp5();
+                //cus.Caller();
+                Console.WriteLine("End");
             }
             catch (Exception ex)
             {
