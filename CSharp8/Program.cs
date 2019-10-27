@@ -15,6 +15,8 @@ namespace CSharp8
             var productInfo = productManager.GetProductInfo("1","2");
             Console.WriteLine(productInfo);
 
+
+
             Console.ReadKey();
 
         }
