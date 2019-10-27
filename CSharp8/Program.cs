@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
 using static CSharp8.TuplePattern.RockPaperScissorType;
 
 namespace CSharp8
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // 1. Readonly members
             new Point { X = 1, Y = 2 };
@@ -21,7 +22,9 @@ namespace CSharp8
             TuplePattern.RockPaperScissors(Rock, Paper);
             TuplePattern.RockPaperScissors(new TuplePattern.RockPaperScissorsCombine());
 
-
+            //4. Using declarations
+            UsingDeclaration.WriteLinesToFile();
+            var result = await UsingDeclaration.DisosableObjManager.GetName();
 
             Console.ReadKey();
 
