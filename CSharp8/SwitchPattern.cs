@@ -2,20 +2,39 @@
 
 namespace CSharp8
 {
-    public enum Rainbow
+    public class SwitchPattern
     {
-        Red,
-        Orange,
-        Yellow,
-        Green,
-        Blue,
-        Indigo,
-        Violet
-    }
+        #region Internalt Types
+        public enum Rainbow
+        {
+            Red,
+            Orange,
+            Yellow,
+            Green,
+            Blue,
+            Indigo,
+            Violet
+        }
 
-    public class RainbowManager
-    {
-        public static RGBColor GetRainbowColor(Rainbow colorBand)
+        public struct RGBColor
+        {
+            public RGBColor(int r, int g, int b)
+            {
+                R = r;
+                G = g;
+                B = b;
+            }
+
+            public int R { get; set; }
+
+            public int G { get; set; }
+
+            public int B { get; set; }
+
+        }
+        #endregion
+
+        public static RGBColor GetRainbowColor1(Rainbow colorBand)
         {
             switch (colorBand)
             {
@@ -38,7 +57,7 @@ namespace CSharp8
             };
         }
 
-        public static RGBColor FromRainbowClassic(Rainbow colorBand)
+        public static RGBColor GetRainbowColor2(Rainbow colorBand)
         {
             return colorBand switch
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using static CSharp8.TuplePattern.RockPaperScissorType;
 
 namespace CSharp8
 {
@@ -7,13 +8,18 @@ namespace CSharp8
         static void Main(string[] args)
         {
             // 1. Readonly members
-            var point = new Point { X = 1, Y = 2 };
-            Console.WriteLine(point);
+            new Point { X = 1, Y = 2 };
 
             // 2. Default interface methods
             IProductManager productManager = new ProductManager();
-            var productInfo = productManager.GetProductInfo("1","2");
+            var productInfo = productManager.GetProductInfo("1", "2");
             Console.WriteLine(productInfo);
+
+            // 3. Pattern matching
+            SwitchPattern.GetRainbowColor1(SwitchPattern.Rainbow.Red);
+            PropertyPattern.GetTax(new PropertyPattern.Address { State = "MN", ZipCode = "100" });
+            TuplePattern.RockPaperScissors(Rock, Paper);
+            TuplePattern.RockPaperScissors(new TuplePattern.RockPaperScissorsCombine());
 
 
 
