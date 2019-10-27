@@ -26,6 +26,10 @@ namespace CSharp8
             UsingDeclaration.WriteLinesToFile();
             var result = await UsingDeclaration.DisosableObjManager.GetName();
 
+            //5. Static local functions
+            new StaticLocalFunctions().Fun();
+
+
             Console.ReadKey();
 
         }
