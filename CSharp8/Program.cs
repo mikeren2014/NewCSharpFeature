@@ -10,11 +10,10 @@ namespace CSharp8
             var point = new Point { X = 1, Y = 2 };
             Console.WriteLine(point);
 
-            // 2. 
+            // 2. Default interface methods
             IProductManager productManager = new ProductManager();
-            var sku = productManager.GetSku();
-            var name = productManager.GetNamge();
-            Console.WriteLine($"{sku}--{name}");
+            var productInfo = productManager.GetProductInfo("1","2");
+            Console.WriteLine(productInfo);
 
             Console.ReadKey();
 
