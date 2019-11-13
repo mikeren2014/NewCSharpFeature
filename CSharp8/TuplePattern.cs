@@ -7,12 +7,12 @@ namespace CSharp8
         public static string RockPaperScissors(RockPaperScissorType first, RockPaperScissorType second)
             => (first, second) switch
             {
-                (Rock, Paper) => "rock is covered by paper. Paper wins.",
-                (Rock, Scissors) => "rock breaks scissors. Rock wins.",
-                (Paper, Rock) => "paper covers rock. Paper wins.",
-                (Paper, Scissors) => "paper is cut by scissors. Scissors wins.",
-                (Scissors, Rock) => "scissors is broken by rock. Rock wins.",
-                (Scissors, Paper) => "scissors cuts paper. Scissors wins.",
+                (Rock, Paper) => "rPaper wins.",
+                (Rock, Scissors) => "Rock wins.",
+                (Paper, Rock) => "Paper wins.",
+                (Paper, Scissors) => "pScissors wins.",
+                (Scissors, Rock) => "Rock wins.",
+                (Scissors, Paper) => "Scissors wins.",
                 (_, _) => "tie"
             };
 
@@ -35,12 +35,12 @@ namespace CSharp8
         public static string RockPaperScissors(RockPaperScissorsCombine combine)
             => combine switch
             {
-                (Rock, Paper) => "rock is covered by paper. Paper wins.",
-                (Rock, Scissors) => "rock breaks scissors. Rock wins.",
-                (Paper, Rock) => "paper covers rock. Paper wins.",
-                (Paper, Scissors) => "paper is cut by scissors. Scissors wins.",
-                (Scissors, Rock) => "scissors is broken by rock. Rock wins.",
-                (Scissors, Paper) => "scissors cuts paper. Scissors wins.",
+                (Rock, Paper) => "rPaper wins.",
+                (Rock, Scissors) => "Rock wins.",
+                (Paper, Rock) => "Paper wins.",
+                (Paper, Scissors) => "pScissors wins.",
+                (Scissors, Rock) => "Rock wins.",
+                (Scissors, Paper) => "Scissors wins.",
                 (_, _) => "tie"
             };
     }

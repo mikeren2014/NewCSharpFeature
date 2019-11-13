@@ -1,6 +1,7 @@
-﻿using System;
+﻿using NullableProject;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using static CSharp8.TuplePattern.RockPaperScissorType;
 
 namespace CSharp8
 {
@@ -8,27 +9,39 @@ namespace CSharp8
     {
         static async Task Main(string[] args)
         {
+            // 0. Support 3.0
+
             // 1. Readonly members
             new Point { X = 1, Y = 2 };
 
             // 2. Default interface methods
-            IProductManager productManager = new ProductManager();
-            var productInfo = productManager.GetProductInfo("1", "2");
-            Console.WriteLine(productInfo);
+            new ProductManager();
 
             // 3. Pattern matching
-            SwitchPattern.GetRainbowColor1(SwitchPattern.Rainbow.Red);
-            PropertyPattern.GetTax(new PropertyPattern.Address { State = "MN", ZipCode = "100" });
-            TuplePattern.RockPaperScissors(Rock, Paper);
-            TuplePattern.RockPaperScissors(new TuplePattern.RockPaperScissorsCombine());
+            new PatternMatching();
 
             //4. Using declarations
-            UsingDeclaration.WriteLinesToFile();
-            var result = await UsingDeclaration.DisosableObjManager.GetName();
+            new UsingDeclaration();
 
             //5. Static local functions
-            new StaticLocalFunctions().Fun();
+            new StaticLocalFunction();
 
+            // 6. NullableProject
+            new NullableReferenceType();
+
+            // 7. Asynchronous streams
+            new AsynchronousStreams();
+
+            // 8. Null-coalescing assignment
+            new NullCoalescingAssignment();
+
+            // Enhancement of interpolated verbatim strings
+            new StringFormatter();
+
+            // Indices and ranges
+            new IndicesAndRanges();
+
+            await Task.Delay(0);
 
             Console.ReadKey();
 

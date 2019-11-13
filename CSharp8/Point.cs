@@ -8,7 +8,11 @@ namespace CSharp8
         public double Y { get; set; }
         public readonly double Distance => Math.Sqrt(X * X + Y * Y);
 
-        public readonly override string ToString() =>
-            $"({X}, {Y}) is {Distance} from the origin";
+        public readonly override string ToString()
+        {
+            X = 10;
+            return $"({X}, {Y}) is {Distance} from the origin";
+
+        }
     }
 }

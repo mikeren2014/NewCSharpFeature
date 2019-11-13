@@ -1,63 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CSharp8
 {
     public class UsingDeclaration
     {
-
-        public static void WriteLinesToFile()
+        public async Task WriteToFile()
         {
-            var lines = new List<string> {"line1", "line2" };
-            using (var file = new System.IO.StreamWriter("WriteLines2.txt"))
+            using (var client = new HttpClient())
             {
-                foreach (string line in lines)
-                    file.WriteLine(line);
+                var result = await client.GetAsync("/api/file");
+                var content = await result.Content.ReadAsStringAsync();
+                using (var file = new StreamWriter("WriteLines2.txt"))
+                {
+                    file.WriteLine(content);
+                }
             }
         }
-
-        public class DisosableObjManager
-        {
-            public class DisoableObject1 : IDisposable
-            {
-                public DisoableObject1(string name)
-                {
-                    Name = name;
-                }
-                public string Name { get; set; }
-
-                public async Task<string> GetName()
-                {
-                    await Task.Delay(1);
-                    return Name;
-                }
-
-                public void Dispose()
-                {
-                    Name = null;
-                }
-            }
-
-            public static Task<string> GetName()
-            {
-                using var obj1 = new DisoableObject1("obj1");
-                return obj1.GetName();
-            }
-        }
-
-        
     }
 
-    public class StaticLocalFunctions
+    public class DisposableObjManager
     {
-        public int Fun()
+        public static Task<string> GetNameAsync()
         {
-            int y = 5;
-            int x = 7;
-            return Add(x, y);
+            using var obj1 = new DisposableObject1("obj1");
+            return obj1.GetNameAsync();
+        }
+    }
 
-            static int Add(int left, int right) => left + right;
+    public class DisposableObject1 : IDisposable
+    {
+        public DisposableObject1(string name)
+        {
+            Name = name;
+        }
+
+        public string Name { get; set; }
+
+        public void Dispose()
+        {
+            Name = null;
+        }
+
+        public async Task<string> GetNameAsync()
+        {
+            await Task.Delay(1).ConfigureAwait(false);
+            return Name;
         }
     }
 }

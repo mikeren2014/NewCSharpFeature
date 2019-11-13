@@ -4,17 +4,26 @@ namespace CSharp8
 {
     public interface IProductManager
     {
-        public string GetSku();
+        string GetSku();
 
         public string GetNamge() => "Sample Name";
 
         // Now interface can have fields, but have to be static
-        private static readonly string name = "name from interface";
-        public static readonly string sku = "sku from interface";
+        private static string name = "name from interface";
+
+        public static string sku = "sku from interface";
+
+        public static void SetNameAndSku(string name, string sku)
+        { 
+            
+        }
 
         // Now interface can have implemented methods
-        public string GetProductInfo()
-        => $"{name}: {sku}";
+        public static string GetProductInfo()
+        { 
+           return $"{name}: {sku}";
+        }
+
 
         public string GetProductInfo(string inputName, string inputSku)
         => $"{inputName}: {inputSku}";
@@ -22,6 +31,16 @@ namespace CSharp8
 
     public class ProductManager : IProductManager
     {
-        public string GetSku() => "Sample Sku";
+
+        public string GetProductInfo(string inputName, string inputSku)
+        {
+            //IProductManager.GetProductInfo
+            return string.Empty;
+        }
+
+        public string GetSku()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
